@@ -32,3 +32,18 @@ CREATE TABLE IF NOT EXISTS rulood (
     puuvalmis BOOLEAN,
     pakitud BOOLEAN
 );
+
+-- Mustrinumbri tellimuse lisamine
+
+INSERT INTO rulood (mustrinr)
+VALUES (?);
+
+-- Riidelõikuse valmiks märkimine id järgi
+
+UPDATE rulood SET riievalmis = 1 where id = ?
+
+-- Rulood, kus riie ja puu valmis, aga pole pakitud
+
+SELECT * FROM rulood
+WHERE riievalmis = 1 AND puuvalmis = 1 AND pakitud = 0
+
