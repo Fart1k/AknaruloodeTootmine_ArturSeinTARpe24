@@ -1,0 +1,34 @@
+Kasuta XAMPPis SQL kood:
+-- 1. Loo kasutaja
+
+CREATE USER IF NOT EXISTS 'opilaneArtur'@'localhost'
+
+IDENTIFIED BY '12345';
+
+-- 2. Loo andmebaas
+
+CREATE DATABASE IF NOT EXISTS rulood
+
+CHARACTER SET utf8mb4
+
+COLLATE utf8mb4_estonian_ci;
+
+-- 3. Anna õigused kasutajale opilane
+
+GRANT ALL PRIVILEGES ON rulood.* TO 'arturOpilane'@'localhost';
+
+FLUSH PRIVILEGES;
+
+-- 4. Kasuta andmebaasi
+
+USE haal;
+
+-- 5. Loo tabel rulood
+
+CREATE TABLE IF NOT EXISTS rulood (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mustrinr INT NOT NULL,
+    riievalmis INT,
+    puuvalmis INT,
+    pakitud INT
+);
