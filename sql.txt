@@ -28,7 +28,7 @@ USE haal;
 CREATE TABLE IF NOT EXISTS rulood (
     id INT AUTO_INCREMENT PRIMARY KEY,
     mustrinr INT NOT NULL,
-    riievalmis INT,
-    puuvalmis INT,
-    pakitud INT
+    riievalmis BOOLEAN,
+    puuvalmis BOOLEAN,
+    pakitud BOOLEAN
 );
