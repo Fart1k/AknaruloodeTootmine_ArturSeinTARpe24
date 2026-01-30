@@ -14,7 +14,9 @@ include "navigation.php"
     <label>MustriNr: </label>
     <input type="number" name="mustrinr"><br><br>
 
-    <input type="submit" value="Lisa tellimus">
+    <div class="button">
+        <input type="submit" value="Lisa tellimus">
+    </div>
 </form>
 
 <?php
@@ -42,8 +44,9 @@ include "navigation.php"
 <form action="?" method="post">
     <label>Sinu pakki ID: </label>
     <input type="number" name="pakkiId">
-
-    <input type="submit" value="Vaata">
+    <div class="button">
+        <input type="submit" value="Vaata">
+    </div>
 </form>
 
 <?php

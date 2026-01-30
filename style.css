@@ -1,16 +1,32 @@
-table{
+body {
+    font-family: Arial;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+table {
     border: solid 1px black;
     border-collapse: collapse;
     width: 90%;
-    height: 7%;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
 }
-th{
-    border: solid 1px black;
+th {
+    background-color: #b9efff;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+td {
+    padding: 10px;
     text-align: center;
 }
-td{
-    border: solid 1px black;
-    text-align: center;
+
+tr:hover {
+    background-color: #e6f0ff;
+    transition: background-color 0.2s ease-in-out;
 }
 
 ul {
@@ -31,7 +47,41 @@ ul li a {
 
 ul li a:hover,
 ul li a:active{
-    background-color: #111111;
+    background-color: black;
     transform: scale(1.3);
     transition: transform 0.2s ease-in-out;
+}
+
+.button {
+    text-align: center;
+}
+
+.button input[type="submit"],
+.button button{
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form {
+    text-align: center;
+}
+
+form input {
+    text-align: center;
+    margin-top: 10px;
+}
+h1 {
+    text-align: center;
+    color: #1e3a5f;
+}
+
+h2 {
+    text-align: center;
+    color: #1e3a5f;
 }

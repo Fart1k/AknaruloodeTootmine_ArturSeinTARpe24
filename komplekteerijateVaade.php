@@ -48,7 +48,14 @@ include "navigation.php"
         echo "<td>Valmis</td>";
         echo "<td>Valmis</td>";
         echo "<td>Ei</td>";
-        echo "<td><a href='?valmis=$id'>Pakki</a></td>";
+        echo "<td>
+                <form method='post' style='margin:0'>
+                    <input type='hidden' name='valmis' value='$id'>
+                        <div class='button'>
+                            <button type='submit'>Pakki</button>
+                        </div>
+                </form>
+              </td>";
         echo "</tr>";
     }
     ?>
