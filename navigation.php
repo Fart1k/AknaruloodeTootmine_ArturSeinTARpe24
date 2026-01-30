@@ -2,17 +2,36 @@
 
 <nav class="menu">
     <ul>
-        <li>
-            <a href="tellimuseLisamine.php">Tellimused</a>
-        </li>
-        <li>
-            <a href="riideosakonnaVaade.php">Riideosakonna leht</a>
-        </li>
-        <li>
-            <a href="puuOsakonnaVaade.php">Puuosakonna leht</a>
-        </li>
-        <li>
-            <a href="komplekteerijateVaade.php">Komplekteerijate leht</a>
-        </li>
+        <?php
+        if (isset($_SESSION['roll']) && $_SESSION['roll'] == 'admin'):
+        ?>
+            <li>
+                <a href="adminTellimused.php">Tellimused</a>
+            </li>
+            <li>
+                <a href="riideosakonnaVaade.php">Riie</a>
+            </li>
+            <li>
+                <a href="puuOsakonnaVaade.php">Puu</a>
+            </li>
+            <li>
+                <a href="komplekteerijateVaade.php">Komplekteerimine</a>
+            </li>
+        <?php
+        endif;
+        ?>
+
+        <?php
+        if (isset($_SESSION['user_id'])):
+        ?>
+            <li>
+                <a href="tellimuseLisamine.php">Minu tellimus</a>
+            </li>
+            <li>
+                <a href="logout.php">Logi välja</a>
+            </li>
+        <?php
+        endif;
+        ?>
     </ul>
 </nav>

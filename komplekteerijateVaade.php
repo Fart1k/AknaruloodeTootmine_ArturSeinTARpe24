@@ -1,10 +1,15 @@
 <?php
 include "conf.php";
 global $yhendus;
+include "auth.php";
+
+if ($_SESSION['roll'] !== 'admin') {
+    die("Ligipääs keelatud");
+}
 
 /* Riideosa märkimine valmiks */
-if (isset($_GET['valmis'])) {
-    $id = (int)$_GET['valmis'];
+if (isset($_POST['valmis'])) {
+    $id = (int)$_POST['valmis'];
 
     $paring = $yhendus->prepare(
         "UPDATE rulood SET pakitud = 1 WHERE id = ?"
@@ -20,7 +25,7 @@ if (isset($_GET['valmis'])) {
 include "navigation.php"
 ?>
 
-<h2>Lõikamata riideosaga tellimused</h2>
+<h2>Pakkimata tellimused</h2>
 
 <table>
     <tr>
@@ -49,7 +54,7 @@ include "navigation.php"
         echo "<td>Valmis</td>";
         echo "<td>Ei</td>";
         echo "<td>
-                <form method='post' style='margin:0'>
+                <form method='post'>
                     <input type='hidden' name='valmis' value='$id'>
                         <div class='button'>
                             <button type='submit'>Pakki</button>

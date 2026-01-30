@@ -1,10 +1,15 @@
 <?php
 include "conf.php";
 global $yhendus;
+include "auth.php";
+
+if ($_SESSION['roll'] !== 'admin') {
+    die("Ligipääs keelatud");
+}
 
 /* Riideosa märkimine valmiks */
-if (isset($_GET['valmis'])) {
-    $id = (int)$_GET['valmis'];
+if (isset($_POST['valmis'])) {
+    $id = (int)$_POST['valmis'];
 
     $paring = $yhendus->prepare(
         "UPDATE rulood SET riievalmis = 1 WHERE id = ?"

@@ -1,9 +1,11 @@
 <?php
 include "conf.php";
 global $yhendus;
+include "auth.php";
 ?>
 
 <link rel="stylesheet" href="style.css">
+
 <?php
 include "navigation.php"
 ?>
