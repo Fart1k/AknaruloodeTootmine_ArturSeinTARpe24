@@ -1,13 +1,13 @@
 <?php
-include "conf.php";
-global $yhendus;
-include "auth.php";
+include "conf.php"; // lisan conf faili, ühendus andmebaasiga
+global $yhendus; // loon globaalne muutuja, selleks, et saaks kasutada seda iga funktsioonides
+include "auth.php"; // lisan auth faili, see kontrollib, kas kasutaja on sisse logitud
 ?>
 
 <link rel="stylesheet" href="style.css">
 
 <?php
-include "navigation.php"
+include "navigation.php" // lisan navigatsioon
 ?>
 
 <h2>Lisa uus tellimus</h2>
@@ -23,16 +23,16 @@ include "navigation.php"
 
 <?php
 // tellimuste salvestamine
-    if (isset($_POST['mustrinr'])) {
-        $mustrinr = (int)$_REQUEST['mustrinr'];
+    if (isset($_POST['mustrinr'])) { // Kontrollin kas vajutati nuppu 'mustrinr'
+        $mustrinr = $_REQUEST['mustrinr']; // Salvestan seda $mustrinr muutujasse
 
         $paring = $yhendus->prepare(
             "INSERT INTO rulood (mustrinr) VALUES (?);"
         );
-        $paring->bind_param("i", $mustrinr);
-        $paring->execute();
+        $paring->bind_param("i", $mustrinr); // Saadan päringule $id muutuja
+        $paring->execute(); // Käivitan päringu
 
-        $uuePakkiId = $yhendus->insert_id;
+        $uuePakkiId = $yhendus->insert_id; // Salvestab uue objekti ID
 
         echo "<p>Tellimus on lisatud</p>";
         echo "<p><strong>Sinu tellimuse ID: $uuePakkiId</strong></p>";
@@ -53,16 +53,16 @@ include "navigation.php"
 
 <?php
 // tellimuste näitamine
-    if (isset($_POST['pakkiId'])) {
-        $pakkiId = (int)$_POST['pakkiId'];
+    if (isset($_POST['pakkiId'])) { // Kontrollin kas vajutati nuppu 'pakkiId'
+        $pakkiId = $_POST['pakkiId']; // Salvestan seda $pakkiId muutujasse
 
         $paring = $yhendus->prepare(
             "SELECT * FROM rulood WHERE id=?;"
         );
-        $paring->bind_param("i", $pakkiId);
-        $paring->execute();
+        $paring->bind_param("i", $pakkiId); // Saadan muutuja päringule
+        $paring->execute(); // Käivitan päringu
 
-        $paring->bind_result($id, $mustrinr, $riievalmis, $puuvalmis, $pakitud);
+        $paring->bind_result($id, $mustrinr, $riievalmis, $puuvalmis, $pakitud); // Salvestan kõik mida päring sai
 
         if ($paring->fetch()) {
             echo "<table>";
@@ -81,7 +81,8 @@ include "navigation.php"
             echo "<td>" . ($pakitud ? "Jah" : "Ei") . "</td>";
             echo "</tr>";
             echo "</table>";
-        } else {
+        }
+        else {
             echo "<p>Tellimust ei leitud.</p>";
         }
     }
