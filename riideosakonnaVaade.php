@@ -42,8 +42,8 @@ if (isset($_GET['valmis'])) {
         echo "<td>".htmlspecialchars($id)."</td>";
         echo "<td>".htmlspecialchars($mustrinr)."</td>";
         echo "<td>lõikamata</td>";
-        echo "<td>".($puuvalmis ? "valmis" : "tegemisel")."</td>";
-        echo "<td>".($pakitud ? "jah" : "ei")."</td>";
+        echo "<td>".($puuvalmis ? "Valmis" : "Tegemisel")."</td>";
+        echo "<td>".($pakitud ? "Jah" : "Ei")."</td>";
         echo "<td><a href='?valmis=$id'>Valmis</a></td>";
         echo "</tr>";
     }

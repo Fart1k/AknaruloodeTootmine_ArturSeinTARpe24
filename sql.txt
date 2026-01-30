@@ -7,7 +7,7 @@ IDENTIFIED BY '12345';
 
 -- 2. Loo andmebaas
 
-CREATE DATABASE IF NOT EXISTS rulood
+CREATE DATABASE IF NOT EXISTS aknarulood
 
 CHARACTER SET utf8mb4
 
@@ -21,7 +21,7 @@ FLUSH PRIVILEGES;
 
 -- 4. Kasuta andmebaasi
 
-USE haal;
+USE aknarulood;
 
 -- 5. Loo tabel rulood
 
