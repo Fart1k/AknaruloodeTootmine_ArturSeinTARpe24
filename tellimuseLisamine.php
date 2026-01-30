@@ -4,7 +4,9 @@ global $yhendus;
 ?>
 
 <link rel="stylesheet" href="style.css">
-
+<?php
+include "navigation.php"
+?>
 
 <h2>Lisa uus tellimus</h2>
 

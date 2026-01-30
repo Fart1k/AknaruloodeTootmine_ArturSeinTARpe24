@@ -16,6 +16,10 @@ if (isset($_GET['valmis'])) {
 
 <link rel="stylesheet" href="style.css">
 
+<?php
+include "navigation.php"
+?>
+
 <h2>Lõikamata riideosaga tellimused</h2>
 
 <table>
