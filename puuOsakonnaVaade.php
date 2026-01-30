@@ -3,9 +3,6 @@ include "conf.php";
 global $yhendus;
 include "auth.php";
 
-if ($_SESSION['roll'] !== 'admin') {
-    die("Ligipääs keelatud");
-}
 
 /* Riideosa märkimine valmiks */
 if (isset($_POST['valmis'])) {

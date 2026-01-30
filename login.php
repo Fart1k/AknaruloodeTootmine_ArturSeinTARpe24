@@ -40,8 +40,20 @@ if (!empty($_POST['login']) && !empty($_POST['pass'])) {
             header("Location: adminTellimused.php");
             exit();
         }
-        else {
+        if ($roll == 'user') {
             header("Location: tellimuseLisamine.php");
+            exit();
+        }
+        if ($roll == 'puu') {
+            header("Location: puuOsakonnaVaade.php");
+            exit();
+        }
+        if ($roll == 'riide') {
+            header("Location: riideosakonnaVaade.php");
+            exit();
+        }
+        if ($roll == 'komplekt') {
+            header("Location: komplekteerijateVaade.php");
             exit();
         }
     }

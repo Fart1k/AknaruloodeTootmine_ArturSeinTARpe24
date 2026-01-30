@@ -41,18 +41,33 @@ CREATE TABLE kasutajad (
     id INT AUTO_INCREMENT PRIMARY KEY,
     kasutajanimi VARCHAR(50) NOT NULL UNIQUE,
     parool VARCHAR(255) NOT NULL,
-    roll ENUM('admin','user') NOT NULL
+    roll ENUM('admin','user', 'puu', 'riide', 'komplekt') NOT NULL
 );
 
 -- 2. Sisestan sinna admini
 
 INSERT INTO kasutajad (kasutajanimi, parool, roll)
-VALUES ('admin', 'admin', 'admin');
+VALUES ('admin', SHA2('admin123', 256), 'admin');
 
 -- 3. Sisestan sinna tavakasutaja
 
 INSERT INTO kasutajad (kasutajanimi, parool, roll)
-VALUES ('kasutaja', SHA2('user123',256), 'user');
+VALUES ('kasutaja', SHA2('user123', 256), 'user');
+
+-- 4. Sisestan sinna puuosakonna töötaja
+
+INSERT INTO kasutajad (kasutajanimi, parool, roll)
+VALUES ('puu', SHA2('puu123', 256), 'puu');
+
+-- 5. Sisestan sinna puuosakonna töötaja
+
+INSERT INTO kasutajad (kasutajanimi, parool, roll)
+VALUES ('riide', SHA2('riide123', 256), 'riide');
+
+-- 6. Sisestan sinna komplekteetija töötaja
+
+INSERT INTO kasutajad (kasutajanimi, parool, roll)
+VALUES ('komplekt', SHA2('komplekt123', 256), 'komplekt');
 
 -- Mustrinumbri tellimuse lisamine
 
