@@ -33,6 +33,27 @@ CREATE TABLE IF NOT EXISTS rulood (
     pakitud BOOLEAN
 );
 
+-- Admin ja tavakasutaja tuvastamine
+
+-- 1. Loo tabel kasutajad
+
+CREATE TABLE kasutajad (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kasutajanimi VARCHAR(50) NOT NULL UNIQUE,
+    parool VARCHAR(255) NOT NULL,
+    roll ENUM('admin','user') NOT NULL
+);
+
+-- 2. Sisestan sinna admini
+
+INSERT INTO kasutajad (kasutajanimi, parool, roll)
+VALUES ('admin', 'admin', 'admin');
+
+-- 3. Sisestan sinna tavakasutaja
+
+INSERT INTO kasutajad (kasutajanimi, parool, roll)
+VALUES ('kasutaja', SHA2('user123',256), 'user');
+
 -- Mustrinumbri tellimuse lisamine
 
 INSERT INTO rulood (mustrinr)
