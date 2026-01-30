@@ -4,7 +4,7 @@ global $yhendus; // loon globaalne muutuja, selleks, et saaks kasutada seda iga 
 include "auth.php"; // lisan auth faili, see kontrollib, kas kasutaja on sisse logitud
 
 if ($_SESSION['roll'] !== 'admin') { // kontrollimine, kui kasutaja roll ei ole admin tagastab True
-    die("Ligipääs keelatud"); // Keelab liigipääsu aw
+    die("Ligipääs keelatud"); // Keelab liigipääsu
 }
 ?>
 
